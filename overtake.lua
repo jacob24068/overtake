@@ -53,8 +53,8 @@ function script.update(dt)
 
     timePassed = timePassed + dt
 
-    local comboFadingRate = 0.5 * math.lerp(1, 0.1, math.lerpInvSat(player.speedKmh, 80, 200)) + player.wheelsOutside
-    comboMeter = math.max(1, comboMeter - dt * comboFadingRate)
+    local comboFadingRate = 2 * math.lerp(1, 0.1, math.lerpInvSat(player.speedKmh, 80, 200)) + player.wheelsOutside
+    comboMeter = math.max(1, comboMeter - (dt/6) * comboFadingRate)
 
     local sim = ac.getSimState()
     while sim.carsCount > #carsState do
